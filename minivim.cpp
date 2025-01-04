@@ -69,8 +69,8 @@ void MiniVim::statusline(){
   for (int i {}; i < COLS; ++i) {
    mvprintw(LINES - 1, i, " "); 
   }
-  mvprintw(LINES - 1, 0, status.c_str());
-  mvprintw(LINES - 1, COLS - section.length(), section.c_str());
+  mvprintw(LINES - 1, 0, "%s", status.c_str());
+  mvprintw(LINES - 1, COLS - section.length(), "%s", section.c_str());
   attroff(COLOR_PAIR(1));
   attroff(A_BOLD);
   attroff(A_REVERSE);
@@ -169,7 +169,7 @@ void MiniVim::print(){
       move(i, 0);
       clrtoeol();
     }else{
-      mvprintw(i, 0, lines[i].c_str());
+      mvprintw(i, 0, "%s", lines[i].c_str());
     }
     clrtoeol();
   }
